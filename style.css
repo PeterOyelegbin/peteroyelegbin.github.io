@@ -1,0 +1,259 @@
+/* Custom properties/variables  */
+:root {
+    --main-white: #fcfcfc;
+    --main-slikblue: #a7a7de;
+    --main-black: #000000;
+    --main-red: #fa0707;
+    --main-blue: #47457d;
+}
+
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* box-sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Base styles */
+body {
+    font-family: 'Poppins', sans-serif, "Helvetica Neue", Helvetica, Arial;
+    font-size: 1.3em;
+    font-weight: 200;
+    line-height: 1.5;
+    color: var(--main-white);
+}
+
+h1, h2 {
+    font-family: 'Raleway', Arial, sans-serif, Helvetica;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.6em;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-white);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* nav */
+#navbar {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--main-slikblue);
+}
+
+.nav-list {
+    display: flex;
+    margin: 0 1px;
+}
+
+.nav-list a {
+    display: block;
+    padding: 10px;
+    color: var(--main-black);
+}
+
+.nav-list a:hover {
+    background: var(--main-red);
+}
+
+/* Welcome section */
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 120vh;
+    background-image: linear-gradient(62deg, #333341 0%, #61546d 100%);
+}
+
+#welcome-section > p {
+    font-style: italic;
+    color: var(--main-red);
+    width: 90%;
+}
+
+.profile-image {
+    width: 75%;
+    height: 200px;
+    border-radius: 50%;
+}
+
+aside {
+    width: 85%;
+}
+
+progress {
+    width: 30%;
+}
+
+/* Projects section */
+#projects {
+    text-align: center;
+    padding: 60px 10px;
+    background: var(--main-slikblue);
+}
+
+.projects-section-header {
+    color: var(--main-black);
+    max-width: 650px;
+    margin: 0 auto 60px auto;
+    border-bottom: 2px solid var(--main-black);
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.project {
+    background: var(--main-blue);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.code {
+    color: var(--main-blue);
+}
+
+.project-image {
+    height: calc(100% - 6.8rem);
+    width: 90%;
+    object-fit: cover;
+    margin: 10px auto;
+}
+
+.project-title {
+    padding: 20px 0.5px;
+}
+
+/* Footer/Contact section */
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+    background: var(--main-blue);
+}
+
+.contact-section-header > p {
+    font-style: italic;
+}
+
+.contact-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    margin: 10px;
+}
+
+.contact-details {
+    text-shadow: 2px 2px 1px #000000;
+}
+
+footer > p {
+    font-style: italic;
+    color: var(--main-red);
+}
+
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* 460px / 16px = 28.75em */
+@media (min-device-width: 768px) {
+	#navbar {
+        justify-content: flex-end;
+    }
+    
+    .nav-list {
+        margin-right: 20px;
+    }
+
+    .nav-list a {
+        padding: 20px;
+    }
+
+    .profile-image {
+        width: 40%;
+        height: 300px;
+    }
+
+	#projects {
+        padding: 30px 20px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+	
+	.code {
+        transition: color 0.5s ease-out;
+    }
+
+    .project:hover .code {
+        color: #ff7f50;
+    }
+
+    .contact-links {
+        display: flex;
+        justify-content: center;
+        max-width: 980px;
+        margin: 30px;
+        flex-wrap: wrap;
+    }
+
+    .contact-details {
+        margin-right: 20px;
+        transition: transform 0.5s ease-out;
+    }
+    
+    .contact-details:hover {
+        transform: translateY(8px);
+    }
+}
