@@ -1,10 +1,10 @@
 /* Custom properties/variables  */
 :root {
-    --main-white: #fcfcfc;
-    --main-slikblue: #a7a7de;
-    --main-black: #000000;
-    --main-red: #fa0707;
-    --main-blue: #47457d;
+    --white: #ffffff;
+    --black: #333333;
+    --blue: #47457d;
+    --slikblue: #a7a7de;
+    --orange: #ff7f50;
 }
 
 /* Base reset */
@@ -26,23 +26,22 @@ html {
 /* Base styles */
 body {
     font-family: 'Poppins', sans-serif, "Helvetica Neue", Helvetica, Arial;
-    font-size: 1.3em;
-    font-weight: 200;
-    line-height: 1.5;
-    color: var(--main-white);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--white);
 }
 
 h1, h2 {
     font-family: 'Raleway', Arial, sans-serif, Helvetica;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1.6em;
 }
 
 h2 {
-    font-size: 1.6em;
+    font-size: 1.3em;
 }
 
 ul {
@@ -51,7 +50,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: var(--main-white);
+    color: var(--white);
 }
 
 img {
@@ -67,22 +66,22 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--main-slikblue);
+    background: var(--orange);
 }
 
 .nav-list {
     display: flex;
-    margin: 0 1px;
+    margin: 0 .1rem;
 }
 
 .nav-list a {
     display: block;
-    padding: 10px;
-    color: var(--main-black);
+    padding: .5rem;
+    color: var(--black);
 }
 
 .nav-list a:hover {
-    background: var(--main-red);
+    background: var(--slikblue);
 }
 
 /* Welcome section */
@@ -93,13 +92,13 @@ img {
     align-items: center;
     text-align: center;
     width: 100%;
-    height: 120vh;
+    height: 100vh;
     background-image: linear-gradient(62deg, #333341 0%, #61546d 100%);
 }
 
 #welcome-section > p {
     font-style: italic;
-    color: var(--main-red);
+    color: var(--orange);
     width: 90%;
 }
 
@@ -114,53 +113,53 @@ aside {
 }
 
 progress {
-    width: 30%;
+    width: 50%;
 }
 
 /* Projects section */
 #projects {
     text-align: center;
-    padding: 60px 10px;
-    background: var(--main-slikblue);
+    padding: 2rem 1rem;
+    background: var(--slikblue);
 }
 
 .projects-section-header {
-    color: var(--main-black);
-    max-width: 650px;
-    margin: 0 auto 60px auto;
-    border-bottom: 2px solid var(--main-black);
+    color: var(--black);
+    max-width: 450px;
+    margin: 0 auto 2rem auto;
+    border-bottom: .2rem solid var(--black);
 }
 
 /* "Automagic" image grid using no media queries */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 40px;
+    grid-gap: 2rem;
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
 }
 
 .project {
-    background: var(--main-blue);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+    background: var(--blue);
+    box-shadow: .1rem .1rem .2rem rgba(0, 0, 0, 0.5);
+    border-radius: .5rem;
 }
 
 .code {
-    color: var(--main-blue);
+    color: var(--blue);
 }
 
 .project-image {
     height: calc(100% - 6.8rem);
     width: 90%;
     object-fit: cover;
-    margin: 10px auto;
+    margin: 1rem auto;
 }
 
 .project-title {
-    padding: 20px 0.5px;
+    padding: 2rem 0.5rem;
 }
 
 /* Footer/Contact section */
@@ -171,8 +170,8 @@ progress {
     align-items: center;
     text-align: center;
     width: 100%;
-    padding: 0 20px;
-    background: var(--main-blue);
+    padding: 0 2rem;
+    background: var(--blue);
 }
 
 .contact-section-header > p {
@@ -182,50 +181,50 @@ progress {
 .contact-links {
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 20px;
+    grid-gap: 2rem;
     width: 100%;
-    margin: 10px;
+    margin: 1rem;
 }
 
 .contact-details {
-    text-shadow: 2px 2px 1px #000000;
+    text-shadow: .2rem .2rem .1rem #000000;
 }
 
 footer > p {
     font-style: italic;
-    color: var(--main-red);
+    color: var(--orange);
 }
 
 
 /* A few media query to set some font sizes at different screen sizes.
  * This helps automate a bit of responsiveness.
- * The trick is to use the rem unit for size values, margin and padding.
- * Because rem is relative to the document font size
- * when we scale up or down the font size on the document
- * it will affect all properties using rem units for the values.
 */
 
 /* 460px / 16px = 28.75em */
 @media (min-device-width: 768px) {
+    body {
+        font-size: 1.3em;
+    }
+
 	#navbar {
         justify-content: flex-end;
     }
     
     .nav-list {
-        margin-right: 20px;
+        margin-right: 2rem;
     }
 
     .nav-list a {
-        padding: 20px;
+        padding: 1rem;
     }
 
     .profile-image {
         width: 40%;
-        height: 300px;
+        height: 230px;
     }
 
 	#projects {
-        padding: 30px 20px;
+        padding: 3rem 2rem;
     }
     
     .projects-grid {
@@ -237,23 +236,23 @@ footer > p {
     }
 
     .project:hover .code {
-        color: #ff7f50;
+        color: var(--orange);
     }
 
     .contact-links {
         display: flex;
         justify-content: center;
         max-width: 980px;
-        margin: 30px;
+        margin: 2rem;
         flex-wrap: wrap;
     }
 
     .contact-details {
-        margin-right: 20px;
+        margin-right: 1rem;
         transition: transform 0.5s ease-out;
     }
     
     .contact-details:hover {
-        transform: translateY(8px);
+        transform: translateY(.6rem);
     }
 }
