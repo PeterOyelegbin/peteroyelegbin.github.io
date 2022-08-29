@@ -25,11 +25,11 @@ const Portfolio = () => {
   return (
     <>
       <Nav/>
-      <Hero bgImage="bg-portfolio" heading1="Back-end Development Portfolio" heading2="Gain online success with a dependable, user-friendly website that was developed using best practices and with a desire for maximum functionality." link="" linktext="Resume"/>
+      <Hero bgImage="bg-portfolio" heading1="Back-end Development Portfolio" heading2="Gain online success with a dependable, user-friendly website that was developed using best practices and with a desire for maximum functionality." link="" linktext="View Resume"/>
       <section className="text-center py-10">
         <div className="container mx-auto px-5">
           <h2>MY WORKS</h2>
-          <h4>Here is a selection of my most recent work. View the remainder of my work on <a href="https://github.com/PeterOyelegbin" className="text-blue-500">Github</a>.</h4>
+          <p className="md:text-center">Here is a selection of my most recent work. View the remainder of my work on <a href="https://github.com/PeterOyelegbin" className="text-blue-500">Github</a>.</p>
 
           <div className="flex flex-wrap gap-5 justify-center mt-3">
             {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio && portfolio.backend?.map((project) => {
