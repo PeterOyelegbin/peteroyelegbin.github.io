@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react"
+import { useAxiosGet } from "../../hooks/useAxiosAsync"
 import Footer from "../../components/Footer"
 import Hero from "../../components/Hero"
 import Nav from "../../components/Nav"
 
 const Portfolio = () => {
-  const url = "https://trusting-lizard-91.hasura.app/api/rest/peter";
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [portfolio, setPortfolio] = useState(null);
-
-  useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        setPortfolio(data);
-          setLoading(false);
-      })
-      .catch(err => {
-          setError(err && "Unable to fetch data!");
-          setLoading(false);
-      });
-  }, [url]);
+  const url = "/peter";
+  const {loading, error, data: portfolio} = useAxiosGet(url)
   
   return (
     <>

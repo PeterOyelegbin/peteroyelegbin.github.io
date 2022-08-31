@@ -24,6 +24,10 @@
   p {
     @apply text-left md:text-lg;
   }
+
+  input, textarea {
+    @apply bg-slate-300 text-black p-2 rounded-md w-full focus:outline-blue-500;
+  }
 }
 
 @layer components {
@@ -37,5 +41,9 @@
 
   .card {
     @apply flex flex-col gap-2 box-border shadow-lg outline-none shadow-blue-700 overflow-hidden rounded-lg md:w-2/5;
+  }
+
+  .form-group {
+    @apply flex flex-col my-3;
   }
 }

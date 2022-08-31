@@ -27,7 +27,7 @@ const Skills = () => {
             <h2 className="text-center md:text-start">Technical skills</h2>
             <div className="flex flex-wrap justify-center md:justify-start my-3 gap-5">
               {technical?.map(obj => {
-                return <p className="bg-slate-300 text-center rounded-lg w-28 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
+                return <p className="bg-slate-300 text-center rounded-lg w-32 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
               })}
             </div>
         </div>
@@ -36,7 +36,7 @@ const Skills = () => {
             <h2 className="text-center md:text-start">Soft skills</h2>
             <div className="flex flex-wrap justify-center md:justify-start my-3 gap-5">
               {soft?.map(obj => {
-                return <p className="bg-slate-300 text-center rounded-lg w-28 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
+                return <p className="bg-slate-300 text-center rounded-lg w-32 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
               })}
             </div>
         </div>
