@@ -21,25 +21,23 @@ const Skills = () => {
   ];
 
   return (
-    <section className="p-5">
-      <div className="flex flex-col gap-3 md:gap-0 md:flex-row">
-        <div className="md:w-1/2" data-aos="flip-up" data-aos-duration="2000">
-            <h2 className="text-center md:text-start">Technical skills</h2>
-            <div className="flex flex-wrap justify-center md:justify-start my-3 gap-5">
-              {technical?.map(obj => {
-                return <p className="bg-slate-300 text-center rounded-lg w-32 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
-              })}
-            </div>
-        </div>
+    <section className="flex flex-col gap-3 my-5 lg:flex-row p-5">
+      <div className="lg:w-1/2" data-aos="flip-up" data-aos-duration="2000">
+          <h2 className="text-center lg:text-start">Technical skills</h2>
+          <div className="flex flex-wrap justify-center lg:justify-start my-3 gap-5">
+            {technical?.map(obj => {
+              return <p className="bg-slate-300 text-center rounded-lg w-32 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
+            })}
+          </div>
+      </div>
 
-        <div className="md:w-1/2" data-aos="flip-up" data-aos-duration="2000">
-            <h2 className="text-center md:text-start">Soft skills</h2>
-            <div className="flex flex-wrap justify-center md:justify-start my-3 gap-5">
-              {soft?.map(obj => {
-                return <p className="bg-slate-300 text-center rounded-lg w-32 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
-              })}
-            </div>
-        </div>
+      <div className="lg:w-1/2" data-aos="flip-up" data-aos-duration="2000">
+          <h2 className="text-center lg:text-start">Soft skills</h2>
+          <div className="flex flex-wrap justify-center lg:justify-start my-3 gap-5">
+            {soft?.map(obj => {
+              return <p className="bg-slate-300 text-center rounded-lg w-32 py-3 hover:-translate-y-2 duration-300" key={obj.id}>{obj.skill}</p>
+            })}
+          </div>
       </div>
     </section>
   )

@@ -7,11 +7,9 @@ import Skills from "./Skills"
 const Home = () => {
   return (
     <>
-        <Nav/>
-        <Hero bgImage="bg-home" heading1="Successful Back-end Development" heading2="Based in Lagos, Nigeria. I work as a free-lance API Developer exceptionally skilled in Database Administration." link="/portfolio" linktext="View my portfolio"/>
-        <About/>
-        <Skills/> 
-        <Footer/>
+      <Hero bgImage="bg-home" heading1="Successful Back-end Development" heading2="Based in Lagos, Nigeria. I work as a free-lance API Developer exceptionally skilled in Database Administration." link="/portfolio" linktext="View my portfolio"/>
+      <About/>
+      <Skills/>
     </>
   )
 }

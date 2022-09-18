@@ -21,7 +21,7 @@ const Nav = () => {
     <nav className="shadow-lg bg-slate-300 px-3 py-2 flex justify-between items-center z-30 md:px-5">
       {/* logo */}
       <div className="flex justify-between items-center z-10">
-        <h1 className="text-xl md:text-3xl font-black text-blue-900">Peter Oyelegbin</h1>
+        <h1 className="logo text-xl md:text-3xl font-black text-blue-900">Peter Oyelegbin</h1>
       </div>
 
       {/* menu button */}
@@ -37,7 +37,7 @@ const Nav = () => {
         ))}
 
         {/* Icon when menu is open. Heroicon name: outline/x Menu open: "block", Menu closed: "hidden" */}
-        <FaTimes className={`h-6 w-6 mx-auto cursor-pointer lg:hidden ${open ? "block" : "hidden"}`} onClick={handleMenuContent}/>
+        <FaTimes className={`h-6 w-6 mx-auto cursor-pointer md:hidden ${open ? "block" : "hidden"}`} onClick={handleMenuContent}/>
       </ul>
     </nav>
   )
