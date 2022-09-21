@@ -21,9 +21,9 @@ const About = () => {
       <div className="flex flex-col text-justify xl:w-1/2">
         <h2>ABOUT ME</h2>
 
-        <p>Hello! I am <strong>Peter Oyelegbin</strong>, a Yaba College of Technology graduate in industrial maintenance engineering. My lecturer, <strong>Dr. Engr. Samson Oloketuyi</strong>, introduced me to programming in 2020 during the COVID-19 lock-down. Since then, I've been exposed to a variety of tech fields, including desktop, web apps, and data science utilizing Python libraries. Of course, you may call me a Python coder; I adore the language for its flexible application in the tech industry 🤗</p>
+        <p>Hello! My name is <strong>Peter Oyelegbin</strong>, and I have two years of expertise in tech, including desktops, online apps, and data science using the Python library. I graduated from Yaba College of Technology with a degree in Industrial Maintenance Engineering. You may categorically refer to me as a <strong>Python programmer</strong>, as I adore this language's flexible application in the computer industry 🤗</p>
 
-        <p className="mt-3">I choose to concentrate in <strong>Python Backend Engineering</strong> as a self-taught Python programmer that places an emphasis on <strong>clean, reusable, and functional code</strong> while adhering to best practices and possessing excellent problem-solving and debugging abilities. As a result, offering website options like:</p>
+        <p className="mt-3">I choose to concentrate on Python Backend Engineering as a self-taught Python programmer with a focus on <strong>clean, reusable, and functional code that adheres to best practices</strong> and has excellent problem-solving and debugging skills. As a result, offering website options like:</p>
 
         <ul className="list-inside list-disc mt-3">
           <li>Building out the core application logic</li>
