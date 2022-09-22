@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useAxiosGet } from "../../hooks/useAxiosAsync";
 import Hero from "../../components/Hero";
 import axios from "axios";
 
 const Contact = () => {
+  // variables and states for star rating
   const colors = {
-    orange: "orange",
-    white: "#FFF"
+    orange: "orange", white: "#FFF"
   };
-
   const stars = Array(5).fill(0);
   const [current, setCurrent] = useState(0);
   const [hover, setHover] = useState(undefined);
 
+  // variable ans state management for api requests
   const url = "https://api.steinhq.com/v1/storages/630773147bccea08c1140ad1/Sheet2";
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -24,24 +23,24 @@ const Contact = () => {
     name: "", email: "", testimony: ""
   });
 
-
+  // function for updating the ratings when click and at hover state
   const handleRate = value => {
     setCurrent(value)
   };
-
   const handleMouseDown = value => {
     setHover(value)
   };
-
   const handleMouseUp = () => {
     setHover(undefined)
   };
 
   const [data, setData] = useState(null);
 
+  // function for handing form submission
   const handleSend = (e) => {
     e.preventDefault();
     setLoader(true);
+
     const sendFeedback = async () => {
       try {
         let newFeedback = [{name: user.name, email: user.email, testimony: user.testimony, rating: current}]
@@ -53,15 +52,18 @@ const Contact = () => {
         setLoader(false); 
       }
     };
+
     sendFeedback();
   };
 
+  // function for handling changes in the input fields
   const handleChange = (e) => {
     const {value, name} = e.target
     setUser({...user, [name]: value})
   }
 
   useEffect(() => {
+    // asynchronous function for getting testimonials on page load
     const getData = async() => {
       try {
         const res = await axios.get(url);
@@ -72,6 +74,7 @@ const Contact = () => {
         setLoading(false); 
       }
     };
+
     getData();
   }, [url])
   
@@ -79,7 +82,8 @@ const Contact = () => {
   return (
     <>
       <Hero bgImage="bg-contact" heading1="Contact me right away!" heading2="Specializing in developing bespoke APIs. Please do not hesitate to use the button below if your company needs data storage or if you are looking to hire." link="tel://+2348078828296" linktext="Call me"/>
-      <section className="p-5 my-5">
+      
+      <section className="p-5 my-5 xl:px-10">
         <div className="rounded-lg shadow-lg flex flex-col items-center gap-3 lg:flex-row">
           <div className="lg:w-3/5 w-full bg-gradient-to-r from-slate-700 to-slate-400 lg:from-slate-700 lg:via-slate-400 lg:to-transparent rounded-lg text-white p-5">
             {/* container holding the contact form */}
@@ -123,7 +127,7 @@ const Contact = () => {
             {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback == null ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback?.map((obj) => {
               return (
                 <div className="text-center shadow-lg shadow-gray-500 rounded-lg hover:-translate-y-2 duration-300 ease-in-out p-3 md:w-1/3" key={obj.email}>
-                  <p>Rated: {obj.rating}/5</p>
+                  <p>Rated: {obj.rating}.0</p>
                   <p>{obj.testimony}</p>
                   <h3 className="text-xl font-semibold">{obj.name}</h3>
                 </div>

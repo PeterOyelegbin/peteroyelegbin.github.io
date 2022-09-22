@@ -3,21 +3,7 @@ import profile from '../../assets/profile.jpg'
 
 const About = () => {
   return (
-    <section className="p-5 my-5 xl:flex xl:flex-flow xl:justify-between xl:items-center gap-3">
-      <div className="xl:w-1/2">
-        <img src={profile} className="rounded-full mx-auto lg:w-2/5 xl:w-1/2" alt="profile picture"/>
-
-        <div className="mt-3 flex mx-auto w-fit px-4 py-2 rounded-full text-slate-300">
-          <a className="mx-3" href="https://linkedin.com/in/PeterOyelegbin" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className='text-blue-700 w-6 h-6'/></a>
-
-          <a className="mx-3" href="https://mobile.facebook.com/peter.oyelegbin" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-blue-700 w-6 h-6'/></a>
-
-          <a className="mx-3" href="https://twitter.com/PeterOyelegbin" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-blue-700 w-6 h-6'/></a>
-
-          <a className="mx-3" href="https://github.com/PeterOyelegbin" target="_blank" rel="noopener noreferrer"><FaGithub className='text-blue-700 w-6 h-6'/></a>
-        </div>
-      </div>
-
+    <section className="p-5 my-5 flex flex-col-reverse xl:flex-row xl:justify-between xl:items-center gap-3 xl:px-10">
       <div className="flex flex-col text-justify xl:w-1/2">
         <h2>ABOUT ME</h2>
 
@@ -33,6 +19,20 @@ const About = () => {
           <li>Domain registration</li>
           <li>Web hosting, and more</li>
         </ul>
+      </div>
+
+      <div className="xl:w-1/2">
+        <img src={profile} className="rounded-full mx-auto lg:w-2/5 xl:w-1/2" alt="profile picture"/>
+
+        <div className="mt-3 flex mx-auto w-fit px-4 py-2 rounded-full text-slate-300">
+          <a className="mx-3" href="https://linkedin.com/in/PeterOyelegbin" target="_blank" rel="noopener noreferrer"><FaLinkedinIn className='text-blue-700 w-6 h-6'/></a>
+
+          <a className="mx-3" href="https://mobile.facebook.com/peter.oyelegbin" target="_blank" rel="noopener noreferrer"><FaFacebook className='text-blue-700 w-6 h-6'/></a>
+
+          <a className="mx-3" href="https://twitter.com/PeterOyelegbin" target="_blank" rel="noopener noreferrer"><FaTwitter className='text-blue-700 w-6 h-6'/></a>
+
+          <a className="mx-3" href="https://github.com/PeterOyelegbin" target="_blank" rel="noopener noreferrer"><FaGithub className='text-blue-700 w-6 h-6'/></a>
+        </div>
       </div>
     </section>
   )

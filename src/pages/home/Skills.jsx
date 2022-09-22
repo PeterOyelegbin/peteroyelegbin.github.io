@@ -21,8 +21,8 @@ const Skills = () => {
   ];
 
   return (
-    <section className="flex flex-col gap-3 my-5 lg:flex-row p-5">
-      <div className="lg:w-1/2" data-aos="flip-up" data-aos-duration="2000">
+    <section className="flex flex-col gap-5 my-5 lg:flex-row justify-center p-5 xl:gap-10 xl:px-10">
+      <div className="lg:w-1/2 xl:w-[60%]" data-aos="flip-up" data-aos-duration="2000">
           <h2 className="text-center lg:text-start">Technical skills</h2>
           <div className="flex flex-wrap justify-center lg:justify-start my-3 gap-5">
             {technical?.map(obj => {
@@ -31,7 +31,7 @@ const Skills = () => {
           </div>
       </div>
 
-      <div className="lg:w-1/2" data-aos="flip-up" data-aos-duration="2000">
+      <div className="lg:w-1/2 xl:w-[40%]" data-aos="flip-up" data-aos-duration="2000">
           <h2 className="text-center lg:text-start">Soft skills</h2>
           <div className="flex flex-wrap justify-center lg:justify-start my-3 gap-5">
             {soft?.map(obj => {

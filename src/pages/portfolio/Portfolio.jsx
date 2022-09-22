@@ -8,7 +8,7 @@ const Portfolio = () => {
   return (
     <>
       <Hero bgImage="bg-portfolio" heading1="Back-end Development Portfolio" heading2="Gain online success with a dependable, user-friendly website that was developed using best practices and with a desire for maximum functionality." link="" linktext="View Resume"/>
-      <section className="text-center p-5 my-5">
+      <section className="text-center p-5 my-5 xl:px-10">
         <h2>MY WORKS</h2>
         <p className="md:text-center">Here is a selection of my most recent work. View the remainder of my work on <a href="https://github.com/PeterOyelegbin" className="text-blue-500">Github</a>.</p>
 

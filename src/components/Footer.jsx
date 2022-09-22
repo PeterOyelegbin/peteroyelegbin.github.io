@@ -5,7 +5,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-slate-300 font-light flex flex-col-reverse justify-center py-5 md:flex-row md:justify-between md:px-10">
+    <footer className="bg-black text-slate-300 font-light flex flex-col-reverse justify-center py-5 md:flex-row md:justify-between md:px-5 xl:px-10">
       <p className="text-center mt-3 md:mt-0"><small>&copy; {year} Moon :: All Right Reserved.</small></p>
 
       {/* container holding the footer contact links */}

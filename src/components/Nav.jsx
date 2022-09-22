@@ -18,7 +18,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="shadow-lg bg-slate-300 px-3 py-2 flex justify-between items-center z-30 md:px-5">
+    <nav className="shadow-lg bg-slate-300 px-3 py-2 flex justify-between items-center z-30 md:px-5 xl:px-10">
       {/* logo */}
       <div className="flex justify-between items-center z-10">
         <h1 className="logo text-xl md:text-3xl font-black text-blue-900">Peter Oyelegbin</h1>
