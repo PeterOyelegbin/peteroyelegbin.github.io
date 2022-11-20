@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import Hero from "../../components/Hero";
 import axios from "axios";
 
 const Contact = () => {
@@ -81,7 +80,16 @@ const Contact = () => {
 
   return (
     <>
-      <Hero bgImage="bg-contact" heading1="Contact me right away!" heading2="Specializing in developing bespoke APIs. Please do not hesitate to use the button below if your company needs data storage or if you are looking to hire." link="tel://+2348078828296" linktext="Call me"/>
+      <header className={`h-screen bg-contact bg-no-repeat bg-cover bg-center md:bg-right bg-fixed mb-5`} id="home">
+        <div className="flex flex-col justify-center items-center h-full bg-black bg-opacity-50 text-center">
+          <div className="flex flex-col justify-center items-center gap-3 w-11/12 md:gap-5 md:w-3/5" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="2000">
+            <h1 className="font-extrabold text-slate-300 text-3xl md:text-5xl">Contact me right away!</h1>
+
+            <h3 className="font-bold text-slate-300 text-xl md:text-3xl">Specializing in developing bespoke APIs. Please do not hesitate to use the button below if your company needs data storage or if you are looking to hire.</h3>
+            <a className="btn" href="tel://+2348078828296">Call me</a>
+          </div>
+        </div>
+      </header>
       
       <section className="p-5 my-5 xl:px-10">
         <div className="rounded-lg shadow-lg flex flex-col items-center gap-3 lg:flex-row">
