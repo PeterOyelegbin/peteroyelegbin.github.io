@@ -12,7 +12,7 @@ const Portfolio = () => {
             <h1 className="font-extrabold text-slate-300 text-3xl md:text-5xl">Back-end Development Portfolio</h1>
 
             <h3 className="font-bold text-slate-300 text-xl md:text-3xl">Gain online success with a dependable, user-friendly website that was developed using best practices and with a desire for maximum functionality.</h3>
-            <a className="btn" href="https://">View Resume</a>
+            <a className="btn" href="https://drive.google.com/file/d/12Zfoayd8hriDJrE94Dnw9SMsRhz7FGVN/view?usp=drivesdk">View Resume</a>
           </div>
         </div>
       </header>

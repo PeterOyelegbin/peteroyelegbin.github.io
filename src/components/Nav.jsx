@@ -18,7 +18,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="shadow-lg bg-slate-300 px-3 py-2 flex justify-between items-center z-30 md:px-5 xl:px-10">
+    <header className="shadow-lg bg-slate-300 px-3 py-2 flex justify-between items-center z-30 md:px-5 xl:px-10">
       {/* logo */}
       <div className="flex justify-between items-center z-10">
         <h1 className="logo text-xl md:text-3xl font-black text-blue-900">Peter Oyelegbin</h1>
@@ -30,16 +30,18 @@ const Nav = () => {
         <HiOutlineMenuAlt3 className={`h-6 w-6 ${open ? "hidden" : "block"}`}/>
       </button>
 
-      {/* menu content */}
-      <ul className={`fixed flex flex-col items-center gap-10 bg-slate-300 w-full py-10 top-10 transition-all ease-in-out duration-300 z-20 md:flex-row md:static md:w-auto md:py-0 ${open ? 'right-0' : '-right-full'}`}>
-        {menuContent && menuContent?.map((contents) => (
-          <li className='flex md:flex-col' key={contents.id}>{contents.icon}<NavLink className={({isActive})=> isActive ? 'text-blue-900 text-xl' : 'ml-1 text-xl md:ml-0'} to={contents.link} onClick={handleMenuContent}>{contents.label}</NavLink></li>
-        ))}
+      {/* nav content */}
+      <nav className={`fixed flex flex-col bg-slate-300 w-full py-10 top-10 transition-all ease-in-out duration-300 z-20 md:flex-row md:static md:w-auto md:py-0 ${open ? 'right-0' : '-right-full'}`}>
+        <ul className='flex flex-col items-center gap-10 md:flex-row'>
+          {menuContent && menuContent?.map((contents) => (
+            <li className='flex md:flex-col' key={contents.id}>{contents.icon}<NavLink className={({isActive})=> isActive ? 'text-blue-900 text-xl transition-all ease-in-out duration-300' : 'ml-1 text-xl md:ml-0 transition-all ease-in-out duration-300'} to={contents.link} onClick={handleMenuContent}>{contents.label}</NavLink></li>
+          ))}
 
-        {/* Icon when menu is open. Heroicon name: outline/x Menu open: "block", Menu closed: "hidden" */}
-        <FaTimes className={`h-6 w-6 mx-auto cursor-pointer md:hidden ${open ? "block" : "hidden"}`} onClick={handleMenuContent}/>
-      </ul>
-    </nav>
+          {/* Icon when menu is open. Heroicon name: outline/x Menu open: "block", Menu closed: "hidden" */}
+          <FaTimes className={`h-6 w-6 mx-auto cursor-pointer md:hidden ${open ? "block" : "hidden"}`} onClick={handleMenuContent}/>
+        </ul>
+      </nav>
+    </header>
   )
 }
 
