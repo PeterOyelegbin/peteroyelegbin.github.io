@@ -9,7 +9,7 @@ AOS.init()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/peteroyelegbin">
+    <BrowserRouter basename="/">
       <ScrollToTop>
         <App />
       </ScrollToTop>
