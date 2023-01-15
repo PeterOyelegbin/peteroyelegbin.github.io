@@ -1,7 +1,7 @@
 import { useAxiosGet } from "../../hooks/useAxiosAsync";
 
 const Portfolio = () => {
-  const url = "/peter";
+  const url = "/peter-projects";
   const {loading, error, data: portfolio} = useAxiosGet(url)
   
   return (
@@ -22,7 +22,7 @@ const Portfolio = () => {
         <p className="md:text-center">Here is a selection of my most recent work. View the remainder of my work on <a href="https://github.com/PeterOyelegbin" className="text-blue-500">Github</a>.</p>
 
         <div className="flex flex-wrap gap-10 justify-center mt-3">
-          {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio && portfolio.backend?.map((project) => {
+          {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio.results && portfolio.results?.map((project) => {
             return (
               <div className="card" data-aos="flip-left" data-aos-duration="2000" key={project.id}>
                 <img src={project.image || ""} className="w-full" alt="project-image" />

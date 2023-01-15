@@ -12,7 +12,7 @@ const Contact = () => {
   const [hover, setHover] = useState(undefined);
 
   // variable ans state management for api requests
-  const url = "https://api.steinhq.com/v1/storages/630773147bccea08c1140ad1/Sheet2";
+  const url = "https://portfolio-api.up.railway.app/peter-reviews";
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [feedback, setFeedback] = useState(null);
@@ -43,7 +43,7 @@ const Contact = () => {
     const sendFeedback = async () => {
       try {
         let newFeedback = [{name: user.name, email: user.email, testimony: user.testimony, rating: current}]
-        await axios.post("https://api.steinhq.com/v1/storages/630773147bccea08c1140ad1/Sheet2", newFeedback);
+        await axios.post(url, newFeedback);
         setData(newFeedback);
       } catch (error) {
         error?.message && setErrormsg("Unable to send feedback");
