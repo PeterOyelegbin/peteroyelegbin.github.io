@@ -44,7 +44,7 @@
   }
 
   .card {
-    @apply flex flex-col gap-2 box-border shadow-lg outline-none shadow-blue-700 overflow-hidden rounded-lg lg:w-2/5;
+    @apply flex flex-col gap-2 box-border shadow-md outline-none shadow-blue-700 overflow-hidden rounded-2xl lg:w-2/5;
   }
 
   .form-group {

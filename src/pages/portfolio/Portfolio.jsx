@@ -1,3 +1,5 @@
+import { FaInternetExplorer, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useAxiosGet } from "../../hooks/useAxiosAsync";
 
 const Portfolio = () => {
@@ -24,13 +26,21 @@ const Portfolio = () => {
         <div className="flex flex-wrap gap-10 justify-center mt-3">
           {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio.results && portfolio.results?.map((project) => {
             return (
-              <div className="card" data-aos="flip-left" data-aos-duration="2000" key={project.id}>
-                <img src={project.image || ""} className="w-full" alt="project-image" />
-                <div className=" flex flex-col gap-3 p-3">
+              <figure className="card" data-aos="flip-left" data-aos-duration="2000" key={project.id}>
+                <img src={project.cover_image || ""} className="w-full" alt="project-image" />
+                <figcaption className=" flex flex-col gap-3 p-3">
+                  <h5>{project.title || ""}</h5>
                   <p>{project.description || ""}</p>
-                  <a href={project.link || "#"} className="btn w-40 m-0" target="_blank" rel="noopener noreferrer">Preview</a>
-                </div>
-              </div>
+                  <div className='flex gap-5 items-center justify-end text-2xl'>
+                    <Link to={project.project_url || "#"} className="" target="_blank">
+                      <FaInternetExplorer/>
+                    </Link>
+                    <Link to={project.github_url || "#"} className="" target="_blank">
+                      <FaGithub/>
+                    </Link>
+                  </div>
+                </figcaption>
+              </figure>
             )
           })}
         </div>

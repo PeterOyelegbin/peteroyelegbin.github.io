@@ -19,7 +19,7 @@ const Contact = () => {
   const [loader, setLoader] = useState(false);
   const [errormsg, setErrormsg] = useState(null);
   const [user, setUser] = useState({
-    name: "", email: "", testimony: ""
+    full_name: "", email: "", comment: ""
   });
 
   // function for updating the ratings when click and at hover state
@@ -42,7 +42,7 @@ const Contact = () => {
 
     const sendFeedback = async () => {
       try {
-        let newFeedback = [{name: user.name, email: user.email, testimony: user.testimony, rating: current}]
+        let newFeedback = [{full_name: user.full_name, email: user.email, comment: user.comment, ratings: current}]
         await axios.post(url, newFeedback);
         setData(newFeedback);
       } catch (error) {
@@ -65,10 +65,10 @@ const Contact = () => {
     // asynchronous function for getting testimonials on page load
     const getData = async() => {
       try {
-        const res = await axios.get(url);
-        setFeedback(res?.data);
+        const resp = await axios.get(url);
+        setFeedback(resp?.data);
       } catch (error) {
-        setError(error?.message && "Unable to load data!");
+        setError(error?.message && "Unable to load testimonial!");
       } finally {
         setLoading(false); 
       }
@@ -99,16 +99,16 @@ const Contact = () => {
               <h3 className="text-2xl font-semibold mb-3">Rate my services</h3>
               <form onSubmit={handleSend}>
                 <div className="form-group">
-                  <label htmlFor="name">Full name</label>
-                  <input type="text"id="name" name="name" value={user.name} onChange={handleChange} placeholder="Enter full Name" minLength="4" maxLength="50" required/>
+                  <label htmlFor="full_name">Full name</label>
+                  <input type="text"id="full_name" name="full_name" value={user.full_name} onChange={handleChange} placeholder="Enter full Name" minLength="4" maxLength="50" required/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input type="email" id="email" name="email" value={user.email} onChange={handleChange} placeholder="example@example.com" minLength="8" maxLength="50" required/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="testimony">Comment</label>
-                  <textarea id="testimony" name="testimony" value={user.testimony} onChange={handleChange} cols="30" rows="5" placeholder="Write your message here..." minLength="50" maxLength="150" required></textarea>
+                  <label htmlFor="comment">Comment</label>
+                  <textarea id="comment" name="comment" value={user.comment} onChange={handleChange} cols="30" rows="5" placeholder="Write your message here..." minLength="50" maxLength="150" required></textarea>
                 </div>
                 <div className='flex justify-center gap-2 my-3'>
                   {stars.map((_, index) => {
@@ -132,12 +132,12 @@ const Contact = () => {
         <div className="py-5 my-5">
           <h2 className="text-center">What are people saying?</h2>
           <div className="flex flex-col justify-center gap-3 md:flex-row">
-            {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback?.map((obj) => {
+            {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback && feedback.results?.map((obj) => {
               return (
-                <div className="text-center shadow-lg shadow-gray-500 rounded-lg hover:-translate-y-2 duration-300 ease-in-out p-3 md:w-1/3" key={obj.email}>
-                  <p>Rated: {obj.rating}.0</p>
-                  <p>{obj.testimony}</p>
-                  <h3 className="text-xl font-semibold">{obj.name}</h3>
+                <div className="text-center shadow-md shadow-gray-500 rounded-2xl hover:-translate-y-2 duration-300 ease-in-out p-3 md:w-1/3" key={obj.id}>
+                  <p>Rated: {obj.ratings}.0</p>
+                  <p>{obj.comment}</p>
+                  <h3 className="text-xl font-semibold">{obj.full_name}</h3>
                 </div>
               )
             })}
