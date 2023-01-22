@@ -42,7 +42,7 @@ const Contact = () => {
 
     const sendFeedback = async () => {
       try {
-        let newFeedback = [{full_name: user.full_name, email: user.email, comment: user.comment, ratings: current}]
+        let newFeedback = {full_name: user.full_name, email: user.email, comment: user.comment, ratings: current}
         await axios.post(url, newFeedback);
         setData(newFeedback);
       } catch (error) {
@@ -53,6 +53,9 @@ const Contact = () => {
     };
 
     sendFeedback();
+    setUser({
+      full_name: "", email: "", comment: ""
+    })
   };
 
   // function for handling changes in the input fields
@@ -93,9 +96,9 @@ const Contact = () => {
       
       <section className="p-5 my-5 xl:px-10">
         <div className="rounded-lg shadow-lg flex flex-col items-center gap-3 lg:flex-row">
-          <div className="lg:w-3/5 w-full bg-gradient-to-r from-slate-700 to-slate-400 lg:from-slate-700 lg:via-slate-400 lg:to-transparent rounded-lg text-white p-5">
+          <div className="lg:w-2/5 w-full bg-gradient-to-r from-slate-700 to-slate-400 lg:from-slate-700 lg:via-slate-400 lg:to-transparent rounded-lg text-white p-5">
             {/* container holding the contact form */}
-            <div className="lg:w-1/2">
+            <div className="lg:w-3/4">
               <h3 className="text-2xl font-semibold mb-3">Rate my services</h3>
               <form onSubmit={handleSend}>
                 <div className="form-group">
@@ -118,13 +121,13 @@ const Contact = () => {
 
                 {loader ? <p className='text-center text-white my-3'>Loading...</p> : error ? <p className='text-center text-red-500 my-3'>{errormsg}</p> : data && <p className='text-center text-white my-3'>Message sent.</p> }
 
-                <button className="btn rounded-lg my-0">SEND</button>
+                <button className="btn rounded-xl my-0">SEND</button>
               </form>
             </div>
           </div>
 
           {/* container holding the map */}
-          <div className="w-full lg:w-2/5 lg:flex lg:flex-row">
+          <div className="w-full lg:w-3/5 lg:flex lg:flex-row">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d506.8595326270906!2d3.470029635108708!3d6.451497344755038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1663527297558!5m2!1sen!2sng" height="450" className="w-full mx-auto" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
@@ -132,12 +135,12 @@ const Contact = () => {
         <div className="py-5 my-5">
           <h2 className="text-center">What are people saying?</h2>
           <div className="flex flex-col justify-center gap-3 md:flex-row">
-            {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback && feedback.results?.map((obj) => {
+            {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.results.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback && feedback.results?.map((obj) => {
               return (
                 <div className="text-center shadow-md shadow-gray-500 rounded-2xl hover:-translate-y-2 duration-300 ease-in-out p-3 md:w-1/3" key={obj.id}>
-                  <p>Rated: {obj.ratings}.0</p>
+                  <p className="flex items-center font-semibold text-blue-700 mb-2">Rated: {obj.ratings}<FaStar/></p>
                   <p>{obj.comment}</p>
-                  <h3 className="text-xl font-semibold">{obj.full_name}</h3>
+                  <h3 className="text-xl font-semibold mt-2">{obj.full_name}</h3>
                 </div>
               )
             })}

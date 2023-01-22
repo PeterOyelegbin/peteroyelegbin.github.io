@@ -13,12 +13,20 @@
     font-family: 'Quicksand', sans-serif;
   }
 
+  h1 {
+    @apply text-blue-900 text-3xl font-bold;
+  }
+
   h2 {
-    @apply text-blue-900 text-2xl font-bold;
+    @apply text-blue-900 text-[26px] leading-8 font-bold;
+  }
+
+  h3 {
+    @apply text-[22px] leading-7 font-semibold;
   }
 
   h4 {
-    @apply text-lg text-justify md:text-center;
+    @apply text-lg font-semibold text-justify md:text-center;
   }
 
   p {
@@ -40,11 +48,11 @@
   }
 
   .btn {
-    @apply inline-block bg-gradient-to-r from-blue-700 to-blue-500 transition-all ease-linear duration-300 hover:bg-gradient-to-bl hover:from-blue-700 hover:to-blue-500 rounded-full text-xl text-slate-200 py-3 px-8 mt-5 md:text-2xl md:mt-10;
+    @apply inline-block bg-gradient-to-r from-blue-700 to-blue-500 transition-all ease-linear duration-300 hover:bg-gradient-to-bl hover:from-blue-700 hover:to-blue-500 rounded-full text-xl text-slate-200 py-2 px-8 mt-5 md:mt-10;
   }
 
   .card {
-    @apply flex flex-col gap-2 box-border shadow-md outline-none shadow-blue-700 overflow-hidden rounded-2xl lg:w-2/5;
+    @apply flex flex-col gap-2 box-border shadow-md outline-none shadow-blue-700 rounded-2xl lg:w-2/5;
   }
 
   .form-group {

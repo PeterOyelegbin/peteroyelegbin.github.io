@@ -26,16 +26,16 @@ const Portfolio = () => {
         <div className="flex flex-wrap gap-10 justify-center mt-3">
           {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio.results && portfolio.results?.map((project) => {
             return (
-              <figure className="card" data-aos="flip-left" data-aos-duration="2000" key={project.id}>
-                <img src={project.cover_image || ""} className="w-full" alt="project-image" />
+              <figure className="card ease-linear duration-300 hover:bg-slate-200" data-aos="flip-left" data-aos-duration="2000" key={project.id}>
+                <img src={project.cover_image || ""} className="w-full rounded-t-2xl" alt="project-image" />
                 <figcaption className=" flex flex-col gap-3 p-3">
-                  <h5>{project.title || ""}</h5>
-                  <p>{project.description || ""}</p>
+                  <h4>{project.title || ""}</h4>
+                  <p className='text-sm'>{project.description || ""}</p>
                   <div className='flex gap-5 items-center justify-end text-2xl'>
-                    <Link to={project.project_url || "#"} className="" target="_blank">
+                    <Link to={project.project_url || "#"} className="ease-in-out duration-300 hover:text-blue-500" target="_blank">
                       <FaInternetExplorer/>
                     </Link>
-                    <Link to={project.github_url || "#"} className="" target="_blank">
+                    <Link to={project.github_url || "#"} className="ease-in-out duration-300 hover:text-blue-500" target="_blank">
                       <FaGithub/>
                     </Link>
                   </div>
