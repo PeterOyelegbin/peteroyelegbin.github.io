@@ -33,6 +33,10 @@
     @apply text-left md:text-lg;
   }
 
+  input[type="range"] {
+    @apply p-0;
+  }
+
   input, textarea {
     @apply bg-slate-300 text-black p-2 rounded-md w-full outline-none border invalid:border-red-500 valid:border-lime-500;
   }

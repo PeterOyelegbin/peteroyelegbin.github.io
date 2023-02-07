@@ -3,15 +3,7 @@ import { FaStar } from "react-icons/fa";
 import axios from "axios";
 
 const Contact = () => {
-  // variables and states for star rating
-  const colors = {
-    orange: "orange", white: "#FFF"
-  };
-  const stars = Array(5).fill(0);
-  const [current, setCurrent] = useState(0);
-  const [hover, setHover] = useState(undefined);
-
-  // variable ans state management for api requests
+  // variable and state management for api requests
   const url = "https://portfolio-api.up.railway.app/peter-reviews";
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -19,19 +11,8 @@ const Contact = () => {
   const [loader, setLoader] = useState(false);
   const [errormsg, setErrormsg] = useState(null);
   const [user, setUser] = useState({
-    full_name: "", email: "", comment: ""
+    full_name: "", email: "", comment: "", rating: 5
   });
-
-  // function for updating the ratings when click and at hover state
-  const handleRate = value => {
-    setCurrent(value)
-  };
-  const handleMouseDown = value => {
-    setHover(value)
-  };
-  const handleMouseUp = () => {
-    setHover(undefined)
-  };
 
   const [data, setData] = useState(null);
 
@@ -42,19 +23,19 @@ const Contact = () => {
 
     const sendFeedback = async () => {
       try {
-        let newFeedback = {full_name: user.full_name, email: user.email, comment: user.comment, ratings: current}
+        let newFeedback = {full_name: user.full_name, email: user.email, comment: user.comment, ratings: user.rating}
         await axios.post(url, newFeedback);
         setData(newFeedback);
       } catch (error) {
         error?.message && setErrormsg("Unable to send feedback");
       } finally {
-        setLoader(false); 
+        setLoader(false);
       }
     };
 
     sendFeedback();
     setUser({
-      full_name: "", email: "", comment: ""
+      full_name: "", email: "", comment: "", rating: 5
     })
   };
 
@@ -73,13 +54,12 @@ const Contact = () => {
       } catch (error) {
         setError(error?.message && "Unable to load testimonial!");
       } finally {
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
     getData();
   }, [url])
-  
 
   return (
     <>
@@ -93,7 +73,7 @@ const Contact = () => {
           </div>
         </div>
       </header>
-      
+
       <section className="p-5 my-5 xl:px-10">
         <div className="rounded-lg shadow-lg flex flex-col items-center gap-3 lg:flex-row">
           <div className="lg:w-2/5 w-full bg-gradient-to-r from-slate-700 to-slate-400 lg:from-slate-700 lg:via-slate-400 lg:to-transparent rounded-lg text-white p-5">
@@ -113,10 +93,9 @@ const Contact = () => {
                   <label htmlFor="comment">Comment</label>
                   <textarea id="comment" name="comment" value={user.comment} onChange={handleChange} cols="30" rows="5" placeholder="Write your message here..." minLength="50" maxLength="150" required></textarea>
                 </div>
-                <div className='flex justify-center gap-2 my-3'>
-                  {stars.map((_, index) => {
-                    return <FaStar key={index} className="cursor-pointer" onClick={() => handleRate(index + 1)} color={(hover || current) > index ? colors.orange : colors.white} onMouseOver={() => handleMouseDown(index + 1)} onMouseLeave={handleMouseUp}/>
-                  })}
+                <div className="form-group">
+                  <label htmlFor="rating" className="flex items-center gap-1">Rate me: {user.rating}<FaStar className="text-base text-yellow-500"/></label>
+                  <input type="range" name="rating"  min={0} max={5} value={user.rating} onChange={handleChange} />
                 </div>
 
                 {loader ? <p className='text-center text-white my-3'>Loading...</p> : error ? <p className='text-center text-red-500 my-3'>{errormsg}</p> : data && <p className='text-center text-white my-3'>Message sent.</p> }
@@ -138,7 +117,7 @@ const Contact = () => {
             {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.results.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback && feedback.results?.map((obj) => {
               return (
                 <div className="text-center shadow-md shadow-gray-500 rounded-2xl hover:-translate-y-2 duration-300 ease-in-out p-3 md:w-1/3" key={obj.id}>
-                  <p className="flex items-center font-semibold text-blue-700 mb-2">Rated: {obj.ratings}<FaStar/></p>
+                  <p className="flex items-center font-semibold mb-2">Rated: {obj.ratings}<FaStar className="text-yellow-500"/></p>
                   <p>{obj.comment}</p>
                   <h3 className="text-xl font-semibold mt-2">{obj.full_name}</h3>
                 </div>

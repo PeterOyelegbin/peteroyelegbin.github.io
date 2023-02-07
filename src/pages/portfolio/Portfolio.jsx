@@ -1,11 +1,10 @@
 import { FaInternetExplorer, FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { useAxiosGet } from "../../hooks/useAxiosAsync";
 
 const Portfolio = () => {
   const url = "/peter-projects";
   const {loading, error, data: portfolio} = useAxiosGet(url)
-  
+
   return (
     <>
       <header className={`h-screen bg-portfolio bg-no-repeat bg-cover bg-center md:bg-right bg-fixed mb-5`} id="home">
@@ -32,12 +31,12 @@ const Portfolio = () => {
                   <h4>{project.title || ""}</h4>
                   <p className='text-sm'>{project.description || ""}</p>
                   <div className='flex gap-5 items-center justify-end text-2xl'>
-                    <Link to={project.project_url || "#"} className="ease-in-out duration-300 hover:text-blue-500" target="_blank">
+                    <a href={project.project_url || "#"} className="ease-in-out duration-300 hover:text-blue-500" target="_blank" rel="noopener noreferrer">
                       <FaInternetExplorer/>
-                    </Link>
-                    <Link to={project.github_url || "#"} className="ease-in-out duration-300 hover:text-blue-500" target="_blank">
+                    </a>
+                    <a href={project.github_url || "#"} className="ease-in-out duration-300 hover:text-blue-500" target="_blank" rel="noopener noreferrer">
                       <FaGithub/>
-                    </Link>
+                    </a>
                   </div>
                 </figcaption>
               </figure>
