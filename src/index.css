@@ -44,7 +44,7 @@
 
 @layer components {
   .preloader {
-    @apply bg-center bg-cover bg-no-repeat w-screen h-screen bg-white z-30 top-0 left-0 fixed flex justify-center items-center transition-transform ease-in-out;
+    @apply w-screen h-screen flex justify-center items-center transition-transform ease-in-out duration-300;
   }
 
   .logo {

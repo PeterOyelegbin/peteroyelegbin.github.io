@@ -5,9 +5,9 @@ import Nav from './Nav';
 const SharedLayout = () => {
   return (
     <>
-        <Nav/>
-        <Outlet/>
-        <Footer/>
+      <Nav/>
+      <Outlet/>
+      <Footer/>
     </>
   )
 }

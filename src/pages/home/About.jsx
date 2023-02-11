@@ -7,9 +7,9 @@ const About = () => {
       <div className="flex flex-col text-justify xl:w-1/2">
         <h2>ABOUT ME</h2>
 
-        <p>Hello! My name is <strong>Peter Oyelegbin</strong>, and I have two years of expertise in tech, including desktops, online apps, and data science using the Python library. I graduated from Yaba College of Technology with a degree in Industrial Maintenance Engineering. You may categorically refer to me as a <strong>Python programmer</strong>, as I adore this language's flexible application in the computer industry 🤗</p>
+        <p><strong>Peter Oyelegbin</strong> is a skilled Backend Engineer with a perfectionist personality based in Lagos. He has more than 2 years hands-on experience building functional and secure Apps/APIs. He currently volunteers as a Backend Engineer at See9ja remotely where he develops a scalable, fast, and secure server-side application and collaborate with other developers to build a fully functional web app.</p>
 
-        <p className="mt-3">I choose to concentrate on Python Backend Engineering as a self-taught Python programmer with a focus on <strong>clean, reusable, and functional code that adheres to best practices</strong> and has excellent problem-solving and debugging skills. As a result, offering website options like:</p>
+        <p className="mt-3">He is ecstatic about the tech industry, constantly eager to learn, collaborate with other developers and connect with other brilliant minds. He offer service like:</p>
 
         <ul className="list-inside list-disc mt-3">
           <li>Building out the core application logic</li>
