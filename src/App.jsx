@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Loader from './components/Loader'
 import SharedLayout from './components/SharedLayout';
 import Contact from './pages/contact/Contact';
 import Home from "./pages/home/Home";
 import Portfolio from './pages/portfolio/Portfolio';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [load, setLoad] = useState(true);
@@ -45,6 +47,7 @@ const App = () => {
           <Route path="contact" element={<Contact/>} />
         </Route>
       </Routes>}
+      <ToastContainer position='top-right' autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </>
   )
 }

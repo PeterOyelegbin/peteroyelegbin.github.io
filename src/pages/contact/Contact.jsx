@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaExclamation, FaStar } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contact = () => {
   // variable and state management for api requests
@@ -8,35 +9,32 @@ const Contact = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [feedback, setFeedback] = useState(null);
-  const [loader, setLoader] = useState(false);
-  const [errormsg, setErrormsg] = useState(null);
   const [user, setUser] = useState({
     full_name: "", email: "", comment: "", rating: 5
   });
 
-  const [data, setData] = useState(null);
+  const disabledBtn = (user.full_name === "" || user.full_name.length < 4 || user.email == "" || !user.email.includes("@") || user.comment == "" || user.comment.length < 50)
+
+  const errorMessage = {
+    full_name: "Required and must be minimum of 4 character", email: "Required and must be a valid email address", comment: "Required and must be minimum of 50 character"
+  }
 
   // function for handing form submission
   const handleSend = (e) => {
     e.preventDefault();
-    setLoader(true);
 
     const sendFeedback = async () => {
       try {
         let newFeedback = {full_name: user.full_name, email: user.email, comment: user.comment, ratings: user.rating}
         await axios.post(url, newFeedback);
-        setData(newFeedback);
+        toast.success("Message sent!")
+        setUser({full_name: "", email: "", comment: "", rating: 5})
       } catch (error) {
-        error?.message && setErrormsg("Unable to send feedback");
-      } finally {
-        setLoader(false);
+        error?.message && toast.error("Unable to send feedback");
       }
     };
 
     sendFeedback();
-    setUser({
-      full_name: "", email: "", comment: "", rating: 5
-    })
   };
 
   // function for handling changes in the input fields
@@ -76,7 +74,7 @@ const Contact = () => {
 
       <section className="p-5 my-5 xl:px-10">
         <div className="rounded-lg shadow-lg flex flex-col items-center gap-3 lg:flex-row">
-          <div className="lg:w-2/5 w-full bg-gradient-to-r from-slate-700 to-slate-400 lg:from-slate-700 lg:via-slate-400 lg:to-transparent rounded-lg text-white p-5">
+          <div className="lg:w-2/5 w-full bg-gradient-to-r from-slate-700 to-slate-500 lg:from-slate-700 lg:via-slate-500 lg:to-transparent rounded-lg text-white p-5">
             {/* container holding the contact form */}
             <div className="lg:w-3/4">
               <h3 className="text-2xl font-semibold mb-3">Rate my services</h3>
@@ -84,23 +82,27 @@ const Contact = () => {
                 <div className="form-group">
                   <label htmlFor="full_name">Full name</label>
                   <input type="text"id="full_name" name="full_name" value={user.full_name} onChange={handleChange} placeholder="Enter full Name" minLength="4" maxLength="50" required/>
+                  {(user.full_name == "" || user.full_name.length < 4) && <p className="font-bold text-xs text-red-500 flex items-center"><FaExclamation/> {errorMessage.full_name}</p>}
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input type="email" id="email" name="email" value={user.email} onChange={handleChange} placeholder="example@example.com" minLength="8" maxLength="50" required/>
+                  {(user.email == "" || !user.email.includes("@")) && <p className="font-bold text-xs text-red-500 flex items-center"><FaExclamation/> {errorMessage.email}</p>}
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="comment">Comment</label>
                   <textarea id="comment" name="comment" value={user.comment} onChange={handleChange} cols="30" rows="5" placeholder="Write your message here..." minLength="50" maxLength="150" required></textarea>
+                  {(user.comment == "" || user.comment.length < 50) && <p className="font-bold text-xs text-red-500 flex items-center"><FaExclamation/> {errorMessage.comment}</p>}
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="rating" className="flex items-center gap-1">Rate me: {user.rating}<FaStar className="text-base text-yellow-500"/></label>
                   <input type="range" name="rating"  min={0} max={5} value={user.rating} onChange={handleChange} />
                 </div>
 
-                {loader ? <p className='text-center text-white my-3'>Loading...</p> : error ? <p className='text-center text-red-500 my-3'>{errormsg}</p> : data && <p className='text-center text-white my-3'>Message sent.</p> }
-
-                <button className="btn rounded-xl my-0">SEND</button>
+                <button type="submit" disabled={disabledBtn} className="btn rounded-xl my-0 disabled:bg-blue-300">SEND</button>
               </form>
             </div>
           </div>
