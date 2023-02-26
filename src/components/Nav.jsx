@@ -11,6 +11,8 @@ const Nav = () => {
     setOpen(!open)
   };
 
+  open ? document.getElementById("root").classList.add("fixed") : document.getElementById("root").classList.remove("fixed")
+
   const menuContent = [
     {id: 1, icon: <BsHouseDoorFill className='w-6 h-6 md:mx-auto'/>, label: 'Home', link: '/'},
     {id: 2, icon: <BsBriefcaseFill className='w-6 h-6 md:mx-auto'/>, label: 'Portfolio', link: '/portfolio'},
