@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-    baseURL: "https://portfolio-api.up.railway.app",
+    baseURL: import.meta.env.VITE_APP_API_URL,
 });

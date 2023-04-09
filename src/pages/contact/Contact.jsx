@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const Contact = () => {
   // variable and state management for api requests
-  const url = "https://portfolio-api.up.railway.app/peter-reviews";
+  const url = `${import.meta.env.VITE_APP_API_URL}/reviews`
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [feedback, setFeedback] = useState(null);

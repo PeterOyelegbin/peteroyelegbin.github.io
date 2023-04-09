@@ -2,7 +2,7 @@ import { FaInternetExplorer, FaGithub } from 'react-icons/fa';
 import { useAxiosGet } from "../../hooks/useAxiosAsync";
 
 const Portfolio = () => {
-  const url = "/peter-projects";
+  const url = "/projects";
   const {loading, error, data: portfolio} = useAxiosGet(url)
 
   return (
