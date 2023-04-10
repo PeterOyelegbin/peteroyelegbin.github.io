@@ -109,14 +109,14 @@ const Contact = () => {
 
           {/* container holding the map */}
           <div className="w-full lg:w-3/5 lg:flex lg:flex-row">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d506.8595326270906!2d3.470029635108708!3d6.451497344755038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1663527297558!5m2!1sen!2sng" height="450" className="w-full mx-auto" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d472.76707592911737!2d3.398877832152075!3d6.609736235142322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b93d4a81745b5%3A0xd36df37dd579930b!2sAllen%20Children%20School!5e0!3m2!1sen!2sng!4v1681140156616!5m2!1sen!2sng" height="450" className="w-full mx-auto" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
         <div className="py-5 my-5">
           <h2 className="text-center">What are people saying?</h2>
           <div className="flex flex-col justify-center gap-3 md:flex-row">
-            {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.results.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback && feedback.results?.map((obj) => {
+            {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : feedback.length < 1 ? <h3 className="text-center text-2xl">Nothing yet</h3> : feedback && feedback?.map((obj) => {
               return (
                 <div className="text-center shadow-md shadow-gray-500 rounded-2xl hover:-translate-y-2 duration-300 ease-in-out p-3 md:w-1/3" key={obj.id}>
                   <p className="flex items-center font-semibold mb-2">Rated: {obj.ratings}<FaStar className="text-yellow-500"/></p>

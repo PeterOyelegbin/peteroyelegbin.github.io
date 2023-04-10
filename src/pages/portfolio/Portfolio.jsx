@@ -23,7 +23,7 @@ const Portfolio = () => {
         <p className="md:text-center">Here is a selection of my most recent work. View the remainder of my work on <a href="https://github.com/PeterOyelegbin" className="text-blue-500">Github</a>.</p>
 
         <div className="flex flex-wrap gap-10 justify-center mt-3">
-          {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio.results && portfolio.results?.map((project) => {
+          {loading ? <h3 className="text-center text-2xl">Loading...</h3> : error ? <h3 className="text-center text-2xl">{error}</h3> : portfolio && portfolio?.map((project) => {
             return (
               <figure className="card ease-linear duration-300 hover:bg-slate-200" data-aos="flip-left" data-aos-duration="2000" key={project.id}>
                 <img src={project.cover_image || ""} className="w-full rounded-t-2xl" alt="project-image" />

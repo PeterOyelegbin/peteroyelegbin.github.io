@@ -7,17 +7,18 @@ const Skills = () => {
     {id: 5, skill: "Python",},
     {id: 6, skill: "Django",},
     {id: 7, skill: "MySQL",},
-    {id: 8, skill: "Flutter",},
+    {id: 8, skill: "Postgres",},
     {id: 9, skill: "Git",},
     {id: 10, skill: "Debugging",}
   ];
 
   const soft = [
-    {id: 1, skill: "Creative",},
+    {id: 1, skill: "Organization",},
     {id: 2, skill: "Leadership",},
     {id: 3, skill: "Teamwork",},
     {id: 4, skill: "Management",},
-    {id: 5, skill: "Adaptive",}
+    {id: 5, skill: "Adaptive",},
+    {id: 6, skill: "Problem solving",}
   ];
 
   return (

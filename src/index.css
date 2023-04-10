@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Quicksand:wght@400;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +8,7 @@
   }
 
   body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Karla', sans-serif;
   }
 
   h1 {
@@ -52,7 +50,7 @@
   }
 
   .logo {
-    font-family: 'Caveat', cursive;
+    font-family: 'Caveat Brush', cursive;
   }
 
   .btn {
